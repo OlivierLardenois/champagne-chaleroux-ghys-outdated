@@ -1,16 +1,16 @@
 {
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "env": {
-        "browser": true
-    },
+    "extends": ["airbnb", "plugin:prettier/recommended", "prettier/react"],
     "rules": {
-        "prettier/prettier": "error"
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [".js", ".jsx"]
+            }
+        ],
+        "react/prop-types": 0,
+        "no-underscore-dangle": 0,
+        "import/imports-first": ["error", "absolute-first"],
+        "import/newline-after-import": "error"
     },
-    "extends": ["@gymlib/eslint-config-react","plugin:react/recommended", "plugin:prettier/recommended"],
-    "plugins": ["react"]
+    "parser": "babel-eslint"
 }
