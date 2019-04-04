@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import Img from 'gatsby-image/withIEPolyfill';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -17,16 +17,24 @@ const Image = () => (
     <StaticQuery
         query={graphql`
             query {
-                placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+                file(relativePath: { eq: "background.jpg" }) {
                     childImageSharp {
-                        fluid(maxWidth: 300) {
-                            ...GatsbyImageSharpFluid
+                        fixed {
+                            ...GatsbyImageSharpFixed
                         }
                     }
                 }
             }
         `}
-        render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+        render={data => (
+            <Img
+                style={{ width: '100%', height: '600px' }}
+                fixed={data.file.childImageSharp.fixed}
+                objectFit="cover"
+                objectPosition="50% 50%"
+                alt=""
+            />
+        )}
     />
 );
 export default Image;

@@ -18,6 +18,7 @@ const HeaderItems = styled.div`
     height: 60px;
     width: 100%;
     border: solid;
+    box-sizing: border-box;
 `;
 
 const LogoWapper = styled.div``;
