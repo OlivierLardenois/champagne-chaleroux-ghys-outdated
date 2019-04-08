@@ -19,8 +19,8 @@ const Image = () => (
             query {
                 file(relativePath: { eq: "background.jpg" }) {
                     childImageSharp {
-                        fixed {
-                            ...GatsbyImageSharpFixed
+                        fluid {
+                            ...GatsbyImageSharpFluid
                         }
                     }
                 }
@@ -29,7 +29,7 @@ const Image = () => (
         render={data => (
             <Img
                 style={{ width: '100%', height: '600px' }}
-                fixed={data.file.childImageSharp.fixed}
+                fluid={data.file.childImageSharp.fluid}
                 objectFit="cover"
                 objectPosition="50% 50%"
                 alt=""
