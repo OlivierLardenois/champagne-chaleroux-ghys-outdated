@@ -12,5 +12,6 @@
         "import/imports-first": ["error", "absolute-first"],
         "import/newline-after-import": "error"
     },
+    "env": { "browser": true },
     "parser": "babel-eslint"
 }

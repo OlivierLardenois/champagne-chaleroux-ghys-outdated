@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const EMAIL = 'email@gmail.com';
 
@@ -28,6 +29,19 @@ const Contact = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [text, setText] = useState('');
+    const [captcha, setCaptcha] = useState(false);
+
+    function onChange(value) {
+        if (value) setCaptcha(true);
+    }
+
+    function handleSubmit(event) {
+        // @TODO: Look at Formik
+        // Send captcha value to backend in order to verify it, then send mail
+        event.preventDefault();
+        // eslint-disable-next-line no-alert
+        return captcha ? window.alert('Email sent') : window.alert('Verify captcha');
+    }
 
     return (
         <>
@@ -36,20 +50,18 @@ const Contact = () => {
                 <p>+33 (0)1 23 45 67 89</p>
                 <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
             </InfoWrapper>
-            <StyledForm>
+            <StyledForm onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Nom"
                     value={name.toString()}
                     onChange={e => setName(e.target.value)}
-                    required
                 />
                 <input
                     type="text"
                     placeholder="Email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    required
                 />
                 <StyledTextarea
                     placeholder="Message"
@@ -57,7 +69,10 @@ const Contact = () => {
                     rows="5"
                     value={text}
                     onChange={e => setText(e.target.value)}
-                    required
+                />
+                <ReCAPTCHA
+                    sitekey="6Lf0_pwUAAAAAEyNx2mMJAVU-H8ymMG3PqVV6wSg"
+                    onChange={onChange}
                 />
                 <button type="submit">Envoyer</button>
             </StyledForm>
