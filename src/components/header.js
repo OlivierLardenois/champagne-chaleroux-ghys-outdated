@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { injectIntl } from 'gatsby-plugin-intl';
 
 const HeaderItem = styled.div`
     margin: 0 20px;
@@ -23,21 +24,21 @@ const HeaderItems = styled.div`
 
 const LogoWapper = styled.div``;
 
-const Header = () => (
+const Header = ({ intl }) => (
     <StyledHeader>
         <LogoWapper />
         <HeaderItems>
             <HeaderItem>
-                <a>Présentation</a>
+                <a>{intl.formatMessage({ id: 'presentation' })}</a>
             </HeaderItem>
             <HeaderItem>
-                <a>Accès</a>
+                <a>{intl.formatMessage({ id: 'access' })}</a>
             </HeaderItem>
             <HeaderItem>
-                <a>Contact</a>
+                <a>{intl.formatMessage({ id: 'contact' })}</a>
             </HeaderItem>
         </HeaderItems>
     </StyledHeader>
 );
 
-export default Header;
+export default injectIntl(Header);

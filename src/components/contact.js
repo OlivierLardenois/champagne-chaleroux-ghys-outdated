@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { injectIntl } from 'gatsby-plugin-intl';
 
 const EMAIL = 'email@gmail.com';
 
@@ -25,7 +26,7 @@ const StyledTextarea = styled.textarea`
     resize: none;
 `;
 
-const Contact = () => {
+const Contact = ({ intl }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [text, setText] = useState('');
@@ -53,18 +54,18 @@ const Contact = () => {
             <StyledForm onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Nom"
+                    placeholder={intl.formatMessage({ id: 'name' })}
                     value={name.toString()}
                     onChange={e => setName(e.target.value)}
                 />
                 <input
                     type="text"
-                    placeholder="Email"
+                    placeholder={intl.formatMessage({ id: 'mail' })}
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                 />
                 <StyledTextarea
-                    placeholder="Message"
+                    placeholder={intl.formatMessage({ id: 'message' })}
                     cols="40"
                     rows="5"
                     value={text}
@@ -74,10 +75,10 @@ const Contact = () => {
                     sitekey="6Lf0_pwUAAAAAEyNx2mMJAVU-H8ymMG3PqVV6wSg"
                     onChange={onChange}
                 />
-                <button type="submit">Envoyer</button>
+                <button type="submit">{intl.formatMessage({ id: 'send' })}</button>
             </StyledForm>
         </>
     );
 };
 
-export default Contact;
+export default injectIntl(Contact);
