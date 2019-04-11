@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
+import { Link } from 'react-scroll';
 
 const HeaderItem = styled.div`
     margin: 0 20px;
@@ -24,18 +25,26 @@ const HeaderItems = styled.div`
 
 const LogoWapper = styled.div``;
 
+const Scroller = ({ children, to }) => (
+    <Link to={to} smooth="easeOutQuart" duration={1000}>
+        {children}
+    </Link>
+);
+
 const Header = ({ intl }) => (
     <StyledHeader>
         <LogoWapper />
         <HeaderItems>
             <HeaderItem>
-                <a>{intl.formatMessage({ id: 'presentation' })}</a>
+                <Scroller to="presentation">
+                    {intl.formatMessage({ id: 'presentation' })}
+                </Scroller>
             </HeaderItem>
             <HeaderItem>
-                <a>{intl.formatMessage({ id: 'access' })}</a>
+                <Scroller to="access">{intl.formatMessage({ id: 'access' })}</Scroller>
             </HeaderItem>
             <HeaderItem>
-                <a>{intl.formatMessage({ id: 'contact' })}</a>
+                <Scroller to="contact">{intl.formatMessage({ id: 'contact' })}</Scroller>
             </HeaderItem>
         </HeaderItems>
     </StyledHeader>

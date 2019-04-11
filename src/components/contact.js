@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { injectIntl } from 'gatsby-plugin-intl';
+import { ScrollElement } from 'react-scroll';
 
 const EMAIL = 'email@gmail.com';
 
@@ -26,7 +27,7 @@ const StyledTextarea = styled.textarea`
     resize: none;
 `;
 
-const Contact = ({ intl }) => {
+const Contact = ({ intl, ...rest }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [text, setText] = useState('');
@@ -45,7 +46,7 @@ const Contact = ({ intl }) => {
     }
 
     return (
-        <>
+        <div {...rest}>
             <InfoWrapper>
                 <p>15 Rue de la Paix, 75000 Paris</p>
                 <p>+33 (0)1 23 45 67 89</p>
@@ -77,8 +78,8 @@ const Contact = ({ intl }) => {
                 />
                 <button type="submit">{intl.formatMessage({ id: 'send' })}</button>
             </StyledForm>
-        </>
+        </div>
     );
 };
 
-export default injectIntl(Contact);
+export default ScrollElement(injectIntl(Contact));

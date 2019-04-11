@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
+import { ScrollElement } from 'react-scroll';
 
-const Presentation = ({ intl }) => (
-    <p>
+const Presentation = ({ intl, ...rest }) => (
+    <p {...rest}>
         Sea oporteat hendrerit scripserit ea. His id diam dolor ridens. Ullum veniam ei
         ius. Iuvaret gubergren consequuntur at nec. Eu qui dicam meliore conclusionemque,
         has vidisse feugiat offendit id, duo prima pericula cu. <br /> <br /> Mea nostrud
@@ -13,4 +14,4 @@ const Presentation = ({ intl }) => (
     </p>
 );
 
-export default injectIntl(Presentation);
+export default ScrollElement(injectIntl(Presentation));
