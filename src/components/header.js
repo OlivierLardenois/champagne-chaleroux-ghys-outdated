@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
 import { Link } from 'react-scroll';
 
-const HeaderItem = styled.div`
-    margin: 0 20px;
-`;
-
 const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
+
+    * {
+        z-index: 1;
+    }
 `;
 
 const HeaderItems = styled.div`
@@ -24,6 +24,10 @@ const HeaderItems = styled.div`
 `;
 
 const LogoWapper = styled.div``;
+
+const HeaderItem = styled.div`
+    margin: 0 20px;
+`;
 
 const Scroller = ({ children, to }) => (
     <Link to={to} smooth="easeOutQuart" duration={1000}>
