@@ -7,15 +7,27 @@ const StyledPresentation = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 50px 0;
+    background-color: #f9f9f9;
 
     p {
         max-width: 70%;
         text-align: center;
+        font-family: 'Open Sans';
     }
+`;
+
+const StyledTitle = styled.h1`
+    font-family: cursive, sans-serif;
+    font-size: 3em;
+    margin: 20px 0;
+    font-style: italic;
+    text-decoration: underline;
 `;
 
 const Presentation = ({ intl, ...rest }) => (
     <StyledPresentation {...rest}>
+        <StyledTitle>Présentation</StyledTitle>
         <p>
             Sea oporteat hendrerit scripserit ea. His id diam dolor ridens. Ullum veniam
             ei ius. Iuvaret gubergren consequuntur at nec. Eu qui dicam meliore

@@ -8,8 +8,13 @@ const Container = styled.main`
     margin-top: 60px;
 `;
 
+// @TODO: look react helmet
 const Layout = ({ children }) => (
     <>
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto"
+            rel="stylesheet"
+        />
         <Header />
         <Container>{children}</Container>
         <Footer />

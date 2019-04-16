@@ -19,8 +19,8 @@ const HeaderItems = styled.div`
     position: fixed;
     height: 60px;
     width: 100%;
-    border: solid;
-    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 8px 6px -8px #c1c1c1;
 `;
 
 const LogoWapper = styled.div``;

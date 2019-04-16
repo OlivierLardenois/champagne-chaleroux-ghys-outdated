@@ -6,10 +6,37 @@ import { ScrollElement } from 'react-scroll';
 
 const EMAIL = 'email@gmail.com';
 
+const StyledContact = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+`;
+
+const StyledTitle = styled.h1`
+    font-family: cursive, sans-serif;
+    font-size: 3em;
+    margin: 20px 0;
+    font-style: italic;
+    text-decoration: underline;
+`;
+
 const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px 0;
+
+    * {
+        font-family: 'Open Sans';
+        margin: 10px 0;
+    }
+`;
+
+const StyledEmail = styled.a`
+    cursor: pointer;
+    color: red;
+    text-decoration: none;
 `;
 
 const StyledForm = styled.form`
@@ -19,12 +46,54 @@ const StyledForm = styled.form`
 
     input,
     textarea {
-        border: 1px solid;
+        outline: none;
+        padding: 8px;
+        text-align: center;
+        font-size: 1em;
+        :focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+        :focus:-moz-placeholder {
+            color: transparent;
+        } /* FF 4-18 */
+        :focus::-moz-placeholder {
+            color: transparent;
+        } /* FF 19+ */
+        :focus:-ms-input-placeholder {
+            color: transparent;
+        } /* IE 10+ */
+
+        &::placeholder {
+            font-family: 'Open Sans';
+            font-style: italic;
+            color: #a0a0a0;
+        }
     }
 `;
 
+const StyledInput = styled.input`
+    height: 20px;
+    width: 200px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid;
+`;
+
 const StyledTextarea = styled.textarea`
+    height: 120px;
+    width: 400px;
+    margin: 25px 0;
     resize: none;
+    border-radius: 30px;
+`;
+
+const StyledButton = styled.button`
+    border-radius: 8px;
+    padding: 8px;
+    height: 40px;
+    min-width: 120px;
+    font-size: 1em;
+    margin-top: 25px;
 `;
 
 const Contact = ({ intl, ...rest }) => {
@@ -46,20 +115,21 @@ const Contact = ({ intl, ...rest }) => {
     }
 
     return (
-        <div {...rest}>
+        <StyledContact {...rest}>
+            <StyledTitle>Contact</StyledTitle>
             <InfoWrapper>
                 <p>15 Rue de la Paix, 75000 Paris</p>
                 <p>+33 (0)1 23 45 67 89</p>
-                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                <StyledEmail href={`mailto:${EMAIL}`}>{EMAIL}</StyledEmail>
             </InfoWrapper>
             <StyledForm onSubmit={handleSubmit}>
-                <input
+                <StyledInput
                     type="text"
                     placeholder={intl.formatMessage({ id: 'name' })}
                     value={name.toString()}
                     onChange={e => setName(e.target.value)}
                 />
-                <input
+                <StyledInput
                     type="text"
                     placeholder={intl.formatMessage({ id: 'mail' })}
                     value={email}
@@ -76,9 +146,11 @@ const Contact = ({ intl, ...rest }) => {
                     sitekey="6Lf0_pwUAAAAAEyNx2mMJAVU-H8ymMG3PqVV6wSg"
                     onChange={onChange}
                 />
-                <button type="submit">{intl.formatMessage({ id: 'send' })}</button>
+                <StyledButton type="submit">
+                    {intl.formatMessage({ id: 'send' })}
+                </StyledButton>
             </StyledForm>
-        </div>
+        </StyledContact>
     );
 };
 
