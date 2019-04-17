@@ -114,7 +114,7 @@ const Contact = ({ intl, ...rest }) => {
 
     return (
         <StyledContact {...rest}>
-            <StyledTitle>Contact</StyledTitle>
+            <StyledTitle>{intl.formatMessage({ id: 'contact' })}</StyledTitle>
             <InfoWrapper>
                 <p>15 Rue de la Paix, 75000 Paris</p>
                 <p>+33 (0)1 23 45 67 89</p>

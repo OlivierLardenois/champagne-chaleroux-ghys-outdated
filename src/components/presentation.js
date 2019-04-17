@@ -26,7 +26,7 @@ const StyledTitle = styled.h1`
 
 const Presentation = ({ intl, ...rest }) => (
     <StyledPresentation {...rest}>
-        <StyledTitle>Présentation</StyledTitle>
+        <StyledTitle>{intl.formatMessage({ id: 'presentation' })}</StyledTitle>
         <p>
             Sea oporteat hendrerit scripserit ea. His id diam dolor ridens. Ullum veniam
             ei ius. Iuvaret gubergren consequuntur at nec. Eu qui dicam meliore

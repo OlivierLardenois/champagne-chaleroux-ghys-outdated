@@ -8,7 +8,7 @@ import Language from './language';
 const StyledFooter = styled.footer`
     display: flex;
     justify-content: center;
-    padding: 20px 0;
+    padding: 10px 0 40px 0;
 `;
 
 const FooterCard = styled.div`
