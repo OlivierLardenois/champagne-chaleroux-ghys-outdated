@@ -26,7 +26,11 @@ const HeaderItems = styled.div`
 const LogoWapper = styled.div``;
 
 const HeaderItem = styled.div`
+    cursor: pointer;
     margin: 0 20px;
+    &:hover {
+        color: blue;
+    }
 `;
 
 const Scroller = ({ children, to }) => (
