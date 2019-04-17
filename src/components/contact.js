@@ -28,7 +28,6 @@ const InfoWrapper = styled.div`
     margin: 10px 0;
 
     * {
-        font-family: 'Open Sans';
         margin: 10px 0;
     }
 `;
@@ -64,7 +63,6 @@ const StyledForm = styled.form`
         } /* IE 10+ */
 
         &::placeholder {
-            font-family: 'Open Sans';
             font-style: italic;
             color: #a0a0a0;
         }

@@ -13,7 +13,6 @@ const StyledPresentation = styled.section`
     p {
         max-width: 70%;
         text-align: center;
-        font-family: 'Open Sans';
     }
 `;
 

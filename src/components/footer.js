@@ -7,7 +7,6 @@ import Language from './language';
 
 const StyledFooter = styled.footer`
     display: flex;
-    font-family: 'Open sans';
     justify-content: center;
     padding: 20px 0;
 `;
