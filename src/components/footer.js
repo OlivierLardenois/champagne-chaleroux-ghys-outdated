@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { injectIntl } from 'gatsby-plugin-intl';
-import { Link } from 'react-scroll';
+import { injectIntl, Link } from 'gatsby-plugin-intl';
 
 import Language from './language';
 
@@ -37,6 +36,7 @@ const FooterLink = styled.div`
         margin: 5px 0;
 
         a {
+            color: black;
             cursor: pointer;
             font-size: 0.8em;
             text-decoration: none;
@@ -52,12 +52,6 @@ const FooterActionsWrapper = styled.div`
     width: 250px;
 `;
 
-const Scroller = ({ children, to }) => (
-    <Link to={to} smooth="easeOutQuart" duration={1000}>
-        {children}
-    </Link>
-);
-
 const Footer = ({ intl }) => (
     <StyledFooter>
         <FooterCard>
@@ -65,19 +59,10 @@ const Footer = ({ intl }) => (
                 <h3>{intl.formatMessage({ id: 'sitemap' })}</h3>
                 <ul>
                     <li>
-                        <Scroller to="presentation">
-                            {intl.formatMessage({ id: 'presentation' })}
-                        </Scroller>
+                        <Link to="/">{intl.formatMessage({ id: 'presentation' })}</Link>
                     </li>
                     <li>
-                        <Scroller to="access">
-                            {intl.formatMessage({ id: 'access' })}
-                        </Scroller>
-                    </li>
-                    <li>
-                        <Scroller to="contact">
-                            {intl.formatMessage({ id: 'contact' })}
-                        </Scroller>
+                        <Link to="/gallery">{intl.formatMessage({ id: 'gallery' })}</Link>
                     </li>
                 </ul>
             </FooterLink>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { injectIntl } from 'gatsby-plugin-intl';
-import { ScrollElement } from 'react-scroll';
 
 const EMAIL = 'email@gmail.com';
 
@@ -94,7 +93,7 @@ const StyledButton = styled.button`
     margin-top: 25px;
 `;
 
-const Contact = ({ intl, ...rest }) => {
+const Contact = ({ intl }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [text, setText] = useState('');
@@ -113,7 +112,7 @@ const Contact = ({ intl, ...rest }) => {
     }
 
     return (
-        <StyledContact {...rest}>
+        <StyledContact>
             <StyledTitle>{intl.formatMessage({ id: 'contact' })}</StyledTitle>
             <InfoWrapper>
                 <p>15 Rue de la Paix, 75000 Paris</p>
@@ -152,4 +151,4 @@ const Contact = ({ intl, ...rest }) => {
     );
 };
 
-export default ScrollElement(injectIntl(Contact));
+export default injectIntl(Contact);

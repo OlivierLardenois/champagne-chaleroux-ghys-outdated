@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
-import { ScrollElement } from 'react-scroll';
 
 const StyledPresentation = styled.section`
     display: flex;
@@ -24,8 +23,8 @@ const StyledTitle = styled.h1`
     text-decoration: underline;
 `;
 
-const Presentation = ({ intl, ...rest }) => (
-    <StyledPresentation {...rest}>
+const Presentation = ({ intl }) => (
+    <StyledPresentation>
         <StyledTitle>{intl.formatMessage({ id: 'presentation' })}</StyledTitle>
         <p>
             Sea oporteat hendrerit scripserit ea. His id diam dolor ridens. Ullum veniam
@@ -41,4 +40,4 @@ const Presentation = ({ intl, ...rest }) => (
     </StyledPresentation>
 );
 
-export default ScrollElement(injectIntl(Presentation));
+export default injectIntl(Presentation);
