@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { injectIntl } from 'gatsby-plugin-intl';
-import { Link } from 'react-scroll';
+import { injectIntl, Link } from 'gatsby-plugin-intl';
+import { Link as Scroll } from 'react-scroll';
 
 const StyledHeader = styled.header`
     display: flex;
@@ -26,17 +26,23 @@ const HeaderItems = styled.div`
 const LogoWapper = styled.div``;
 
 const HeaderItem = styled.div`
-    cursor: pointer;
     margin: 0 20px;
+
     &:hover {
         color: blue;
+    }
+
+    a {
+        color: black;
+        cursor: pointer;
+        text-decoration: none;
     }
 `;
 
 const Scroller = ({ children, to }) => (
-    <Link to={to} smooth="easeOutQuart" duration={1000}>
+    <Scroll to={to} smooth="easeOutQuart" duration={1000}>
         {children}
-    </Link>
+    </Scroll>
 );
 
 const Header = ({ intl }) => (
@@ -53,6 +59,9 @@ const Header = ({ intl }) => (
             </HeaderItem>
             <HeaderItem>
                 <Scroller to="contact">{intl.formatMessage({ id: 'contact' })}</Scroller>
+            </HeaderItem>
+            <HeaderItem>
+                <Link to="/gallery">{intl.formatMessage({ id: 'gallery' })}</Link>
             </HeaderItem>
         </HeaderItems>
     </StyledHeader>
