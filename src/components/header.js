@@ -46,6 +46,9 @@ const Header = ({ intl }) => (
                 <Link to="/">{intl.formatMessage({ id: 'home' })}</Link>
             </HeaderItem>
             <HeaderItem>
+                <Link to="/products">{intl.formatMessage({ id: 'products' })}</Link>
+            </HeaderItem>
+            <HeaderItem>
                 <Link to="/gallery">{intl.formatMessage({ id: 'gallery' })}</Link>
             </HeaderItem>
         </HeaderItems>
