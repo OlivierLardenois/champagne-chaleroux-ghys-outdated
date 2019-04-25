@@ -10,6 +10,11 @@ const Products = styled.section`
     & > div:not(:first-child) {
         margin-top: 20px;
     }
+    @media (max-width: 999px) {
+        & > div:not(:first-child) {
+            margin-top: 60px;
+        }
+    }
 `;
 
 const ProductsPage = () => (
