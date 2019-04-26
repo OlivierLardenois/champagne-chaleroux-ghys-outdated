@@ -82,6 +82,10 @@ const StyledTextarea = styled.textarea`
     margin: 25px 0;
     resize: none;
     border-radius: 30px;
+
+    @media (max-width: 500px) {
+        width: 90%;
+    }
 `;
 
 const StyledButton = styled.button`
