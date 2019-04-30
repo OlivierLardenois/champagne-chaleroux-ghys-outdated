@@ -5,32 +5,35 @@ import { injectIntl, Link } from 'gatsby-plugin-intl';
 import Language from './language';
 
 const StyledHeader = styled.header`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
     display: flex;
     justify-content: space-between;
-
-    & > * {
-        z-index: 1;
-    }
+    box-shadow: 0 8px 6px -8px #c1c1c1;
+    background-color: white;
+    z-index: 1;
 `;
 
 const HeaderItems = styled.div`
     display: flex;
-    justify-content: flex-end;
-    position: fixed;
-    height: 60px;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 8px 6px -8px #c1c1c1;
 
     & > * {
         height: 100%;
+
         &:hover {
             background-color: #e5e5e5;
         }
     }
 `;
 
-const LogoWapper = styled.div``;
+const LogoWapper = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+`;
 
 const HeaderItem = styled(Link)`
     cursor: pointer;
@@ -43,7 +46,7 @@ const HeaderItem = styled(Link)`
 
 const Header = ({ intl }) => (
     <StyledHeader>
-        <LogoWapper />
+        <LogoWapper>Logo</LogoWapper>
         <HeaderItems>
             <HeaderItem to="/">{intl.formatMessage({ id: 'home' })}</HeaderItem>
             <HeaderItem to="/products">
