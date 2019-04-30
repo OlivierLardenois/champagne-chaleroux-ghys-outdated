@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
 
+import Language from './language';
+
 const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
 
-    * {
+    & > * {
         z-index: 1;
     }
 `;
@@ -25,11 +27,7 @@ const HeaderItems = styled.div`
 const LogoWapper = styled.div``;
 
 const HeaderItem = styled.div`
-    margin: 0 20px;
-
-    &:hover {
-        color: blue;
-    }
+    padding: 0 20px;
 
     a {
         color: black;
@@ -51,6 +49,7 @@ const Header = ({ intl }) => (
             <HeaderItem>
                 <Link to="/gallery">{intl.formatMessage({ id: 'gallery' })}</Link>
             </HeaderItem>
+            <Language />
         </HeaderItems>
     </StyledHeader>
 );

@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
 
-import Language from './language';
-
 const StyledFooter = styled.footer`
     display: flex;
     justify-content: center;
@@ -66,10 +64,7 @@ const Footer = ({ intl }) => (
                     </li>
                 </ul>
             </FooterLink>
-            <FooterActionsWrapper>
-                <Language />
-                Add social media
-            </FooterActionsWrapper>
+            <FooterActionsWrapper>Add social media</FooterActionsWrapper>
         </FooterCard>
     </StyledFooter>
 );
