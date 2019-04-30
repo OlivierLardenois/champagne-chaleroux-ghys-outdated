@@ -15,40 +15,41 @@ const StyledHeader = styled.header`
 
 const HeaderItems = styled.div`
     display: flex;
-    align-items: center;
     justify-content: flex-end;
     position: fixed;
     height: 60px;
     width: 100%;
     background-color: white;
     box-shadow: 0 8px 6px -8px #c1c1c1;
+
+    & > * {
+        height: 100%;
+        &:hover {
+            background-color: #e5e5e5;
+        }
+    }
 `;
 
 const LogoWapper = styled.div``;
 
-const HeaderItem = styled.div`
+const HeaderItem = styled(Link)`
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     padding: 0 20px;
-
-    a {
-        color: black;
-        cursor: pointer;
-        text-decoration: none;
-    }
+    color: black;
+    text-decoration: none;
 `;
 
 const Header = ({ intl }) => (
     <StyledHeader>
         <LogoWapper />
         <HeaderItems>
-            <HeaderItem>
-                <Link to="/">{intl.formatMessage({ id: 'home' })}</Link>
+            <HeaderItem to="/">{intl.formatMessage({ id: 'home' })}</HeaderItem>
+            <HeaderItem to="/products">
+                {intl.formatMessage({ id: 'products' })}
             </HeaderItem>
-            <HeaderItem>
-                <Link to="/products">{intl.formatMessage({ id: 'products' })}</Link>
-            </HeaderItem>
-            <HeaderItem>
-                <Link to="/gallery">{intl.formatMessage({ id: 'gallery' })}</Link>
-            </HeaderItem>
+            <HeaderItem to="/gallery">{intl.formatMessage({ id: 'gallery' })}</HeaderItem>
             <Language />
         </HeaderItems>
     </StyledHeader>

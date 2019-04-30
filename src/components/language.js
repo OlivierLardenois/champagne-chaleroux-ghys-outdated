@@ -5,7 +5,6 @@ import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl';
 const Dropdown = styled.div`
     position: relative;
     display: inline-block;
-    height: 100%;
 
     & > ul {
         padding: 0;
@@ -37,7 +36,6 @@ const Dropdown = styled.div`
         & > ul {
             display: block;
         }
-        background-color: #e5e5e5;
     }
 `;
 
@@ -46,7 +44,6 @@ const DropdownTrigger = styled.div`
     height: 100%;
     padding: 0 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
 `;
 
