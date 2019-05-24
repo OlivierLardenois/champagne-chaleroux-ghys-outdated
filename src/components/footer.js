@@ -5,7 +5,10 @@ import { injectIntl, Link } from 'gatsby-plugin-intl';
 const StyledFooter = styled.footer`
     display: flex;
     justify-content: center;
-    padding: 10px 0 40px 0;
+
+    @media (min-width: 999px) {
+        padding: 10px 0 40px 0;
+    }
 `;
 
 const FooterCard = styled.div`
@@ -14,9 +17,12 @@ const FooterCard = styled.div`
     box-shadow: 0px 3px 8px 1px #e5e5e5;
     display: flex;
     justify-content: space-between;
-    max-width: 800px;
     padding: 30px 70px;
     width: 100%;
+
+    @media (min-width: 999px) {
+        max-width: 800px;
+    }
 `;
 
 const FooterLink = styled.div`
@@ -58,6 +64,11 @@ const Footer = ({ intl }) => (
                 <ul>
                     <li>
                         <Link to="/">{intl.formatMessage({ id: 'presentation' })}</Link>
+                    </li>
+                    <li>
+                        <Link to="/gallery">
+                            {intl.formatMessage({ id: 'products' })}
+                        </Link>
                     </li>
                     <li>
                         <Link to="/gallery">{intl.formatMessage({ id: 'gallery' })}</Link>
