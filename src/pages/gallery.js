@@ -10,14 +10,23 @@ const ImagesGrid = styled.section`
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 0;
+
+    @media (max-width: 999px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 const ImagesColumn = styled.section`
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: 0 2px;
+    width: 80%;
     max-height: 1200px;
+
+    @media (min-width: 999px) {
+        width: 100%;
+        margin: 0 2px;
+    }
 `;
 
 const ImageWrapper = ({ fluid }) => (
