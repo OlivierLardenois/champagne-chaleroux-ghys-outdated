@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
 
+import Hamburger from './hamburger';
 import Language from './language';
 
 const StyledHeader = styled.header`
@@ -27,6 +28,10 @@ const HeaderItems = styled.div`
             background-color: #e5e5e5;
         }
     }
+
+    @media (max-width: 499px) {
+        display: none;
+    }
 `;
 
 const LogoWapper = styled.div`
@@ -44,9 +49,16 @@ const HeaderItem = styled(Link)`
     text-decoration: none;
 `;
 
+const SmallScreenHamburger = styled(Hamburger)`
+    @media (min-width: 500px) {
+        display: none;
+    }
+`;
+
 const Header = ({ intl }) => (
     <StyledHeader>
         <LogoWapper>Logo</LogoWapper>
+        <SmallScreenHamburger />
         <HeaderItems>
             <HeaderItem to="/">{intl.formatMessage({ id: 'home' })}</HeaderItem>
             <HeaderItem to="/products">
