@@ -55,19 +55,25 @@ const SmallScreenHamburger = styled(Hamburger)`
     }
 `;
 
-const Header = ({ intl }) => (
-    <StyledHeader>
-        <LogoWapper>Logo</LogoWapper>
-        <SmallScreenHamburger />
-        <HeaderItems>
-            <HeaderItem to="/">{intl.formatMessage({ id: 'home' })}</HeaderItem>
-            <HeaderItem to="/products">
-                {intl.formatMessage({ id: 'products' })}
-            </HeaderItem>
-            <HeaderItem to="/gallery">{intl.formatMessage({ id: 'gallery' })}</HeaderItem>
-            <Language />
-        </HeaderItems>
-    </StyledHeader>
-);
+const Header = ({ intl }) => {
+    const pages = [
+        { label: intl.formatMessage({ id: 'home' }), link: '/' },
+        { label: intl.formatMessage({ id: 'products' }), link: '/products' },
+        { label: intl.formatMessage({ id: 'gallery' }), link: '/gallery' },
+    ];
+
+    return (
+        <StyledHeader>
+            <LogoWapper>Logo</LogoWapper>
+            <SmallScreenHamburger pages={pages} />
+            <HeaderItems>
+                {pages.map(({ label, link }) => (
+                    <HeaderItem to={link}>{label}</HeaderItem>
+                ))}
+                <Language />
+            </HeaderItems>
+        </StyledHeader>
+    );
+};
 
 export default injectIntl(Header);

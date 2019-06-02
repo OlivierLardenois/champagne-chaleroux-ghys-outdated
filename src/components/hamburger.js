@@ -104,7 +104,7 @@ const Background = styled.div`
     }
 `;
 
-const Hamburger = ({ className }) => {
+const Hamburger = ({ className, pages }) => {
     const [showMenu, setShowMenu] = useState(false);
 
     return (
@@ -121,15 +121,11 @@ const Hamburger = ({ className }) => {
 
             <div>
                 <Menu showMenu={showMenu}>
-                    <li>
-                        <Link to="/">Test2</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Test2</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Test3</Link>
-                    </li>
+                    {pages.map(({ label, link }) => (
+                        <li>
+                            <Link to={link}>{label}</Link>
+                        </li>
+                    ))}
                 </Menu>
             </div>
         </StyledHamburger>
@@ -138,4 +134,4 @@ const Hamburger = ({ className }) => {
 
 export default Hamburger;
 
-//@ TODO: Handle list onClick || add key props on list
+//@ TODO: Add key props on list || add language to hamburger
