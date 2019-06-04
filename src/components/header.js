@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
 
 import Hamburger from './hamburger';
-import Language from './language';
+import { Language } from './language';
 
 const StyledHeader = styled.header`
     position: fixed;

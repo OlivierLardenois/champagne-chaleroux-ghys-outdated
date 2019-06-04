@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'gatsby-plugin-intl';
 import { CSSTransition } from 'react-transition-group';
 
+import { MobileLanguage } from './language';
+
 const StyledHamburger = styled.div`
     display: flex;
 `;
@@ -57,25 +59,26 @@ const Menu = styled.ul`
     top: 60px;
     margin: 0;
     height: 100vh;
-    width: 60%;
+    width: 70%;
     border-top: solid black;
     background: white;
+    padding: 0;
 
     visibility: ${props => (props.showMenu ? 'visible' : 'hidden')};
     transform: ${props => (props.showMenu ? 'translate(-100%, 0)' : 'none')};
     transition: visibility 0.5s, transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
-    & > li {
+    & > a {
+        color: black;
+        font-size: 0.8em;
+        text-decoration: none;
+    }
+
+    li {
         display: block;
-        padding: 8px 0;
+        padding: 8px 0 8px 30px;
         font-size: 22px;
         cursor: pointer;
-
-        a {
-            color: black;
-            font-size: 0.8em;
-            text-decoration: none;
-        }
     }
 `;
 
@@ -122,10 +125,11 @@ const Hamburger = ({ className, pages }) => {
             <div>
                 <Menu showMenu={showMenu}>
                     {pages.map(({ label, link }) => (
-                        <li>
-                            <Link to={link}>{label}</Link>
-                        </li>
+                        <Link to={link}>
+                            <li>{label}</li>
+                        </Link>
                     ))}
+                    <MobileLanguage />
                 </Menu>
             </div>
         </StyledHamburger>
