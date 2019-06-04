@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
     height: 60px;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 8px 6px -8px #c1c1c1;
+    box-shadow: 0 2px 6px 0px #c1c1c1;
     background-color: white;
     z-index: 1;
 `;
