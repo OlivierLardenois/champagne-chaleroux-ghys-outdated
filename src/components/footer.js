@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image/withIEPolyfill';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
 
 const StyledFooter = styled.footer`
@@ -52,7 +54,9 @@ const FooterLink = styled.div`
 `;
 
 const FooterActionsWrapper = styled.div`
-    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 250px;
 `;
 
@@ -75,9 +79,41 @@ const Footer = ({ intl }) => (
                     </li>
                 </ul>
             </FooterLink>
-            <FooterActionsWrapper>Add social media</FooterActionsWrapper>
+            <FooterActionsWrapper>
+                <h3>{intl.formatMessage({ id: 'followUs' })}</h3>
+                <div>
+                    <a href="https://www.facebook.com/lardenoisetfils/">
+                        <Image />
+                    </a>
+                </div>
+            </FooterActionsWrapper>
         </FooterCard>
     </StyledFooter>
+);
+
+const Image = () => (
+    <StaticQuery
+        query={graphql`
+            query {
+                file(relativePath: { eq: "fb.png" }) {
+                    childImageSharp {
+                        fluid {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+            }
+        `}
+        render={data => (
+            <Img
+                style={{ width: '50px', height: '50px' }}
+                fluid={data.file.childImageSharp.fluid}
+                objectFit="cover"
+                objectPosition="50% 50%"
+                alt=""
+            />
+        )}
+    />
 );
 
 export default injectIntl(Footer);
