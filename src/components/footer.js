@@ -66,7 +66,7 @@ const Footer = ({ intl }) => (
                         <Link to="/">{intl.formatMessage({ id: 'presentation' })}</Link>
                     </li>
                     <li>
-                        <Link to="/gallery">
+                        <Link to="/products">
                             {intl.formatMessage({ id: 'products' })}
                         </Link>
                     </li>
