@@ -1,6 +1,5 @@
 {
     "access": "Accès",
-    "contact": "Contact",
     "name": "Nom",
     "mail": "Email",
     "message": "Message",
@@ -10,6 +9,13 @@
     "home": "Accueil",
     "products": "Produits",
     "followUs": "Suivez nous",
+    "contact": {
+        "title": "Contact",
+        "text": [
+            "Nous serons très heureux de vous accueillir à notre domaine pour vous faire déguster nos vins, visiter notre cave et vous présenter notre métier.",
+            "Notre activité commerciale est additionnelle de notre activité viticole. C’est pourquoi, afin de vous accueillir au mieux, nous vous prions de nous informer par mail ou par téléphone de votre venue."
+        ]
+    },
     "presentation": {
         "title": "Présentation",
         "text": [

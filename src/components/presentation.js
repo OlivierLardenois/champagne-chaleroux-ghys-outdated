@@ -1,6 +1,6 @@
+import { injectIntl } from 'gatsby-plugin-intl';
 import React from 'react';
 import styled from 'styled-components';
-import { injectIntl } from 'gatsby-plugin-intl';
 import locale from '../intl/fr.json';
 
 const StyledPresentation = styled.section`

@@ -1,6 +1,5 @@
 {
     "access": "Access",
-    "contact": "Contact",
     "name": "Name",
     "mail": "Mail",
     "message": "Message",
@@ -10,6 +9,13 @@
     "home": "Home",
     "products": "Products",
     "followUs": "Follow us",
+    "contact": {
+        "title": "Contact",
+        "text": [
+            "We would be happy to welcome you personally in our estate for tasting but also to visit our cellar and share our passion.",
+            "Our activity is mostly focused on the wine making and less on the commercial work that comes with it. Therefor, we recommand you to send us an e-mail or to call us before your visit so that we can make ourselves available."
+        ]
+    },
     "presentation": {
         "title": "Presentation",
         "text": [

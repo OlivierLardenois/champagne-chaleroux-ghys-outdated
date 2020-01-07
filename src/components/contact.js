@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { injectIntl } from 'gatsby-plugin-intl';
+import React, { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+import styled from 'styled-components';
+import locale from '../intl/fr.json';
 
 const EMAIL = 'email@gmail.com';
+const PHONE_NUMBER = '01 23 45 67 89';
 
 const StyledContact = styled.section`
     display: flex;
@@ -28,12 +30,21 @@ const InfoWrapper = styled.div`
 
     * {
         margin: 10px 0;
+        max-width: 70%;
+        text-align: center;
     }
 `;
 
 const StyledEmail = styled.a`
     cursor: pointer;
-    color: red;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 30px;
+`;
+
+const StyledPhone = styled.a`
+    cursor: pointer;
+    font-weight: bold;
     text-decoration: none;
 `;
 
@@ -97,7 +108,7 @@ const StyledButton = styled.button`
     margin-top: 25px;
 `;
 
-const Contact = ({ intl }) => {
+const ContactForm = ({ intl }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [text, setText] = useState('');
@@ -116,41 +127,48 @@ const Contact = ({ intl }) => {
     }
 
     return (
+        <StyledForm onSubmit={handleSubmit}>
+            <StyledInput
+                type="text"
+                placeholder={intl.formatMessage({ id: 'name' })}
+                value={name.toString()}
+                onChange={e => setName(e.target.value)}
+            />
+            <StyledInput
+                type="text"
+                placeholder={intl.formatMessage({ id: 'mail' })}
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+            />
+            <StyledTextarea
+                placeholder={intl.formatMessage({ id: 'message' })}
+                cols="40"
+                rows="5"
+                value={text}
+                onChange={e => setText(e.target.value)}
+            />
+            <ReCAPTCHA
+                sitekey="6Lf0_pwUAAAAAEyNx2mMJAVU-H8ymMG3PqVV6wSg"
+                onChange={onChange}
+            />
+            <StyledButton type="submit">
+                {intl.formatMessage({ id: 'send' })}
+            </StyledButton>
+        </StyledForm>
+    );
+};
+
+const Contact = ({ intl }) => {
+    return (
         <StyledContact>
-            <StyledTitle>{intl.formatMessage({ id: 'contact' })}</StyledTitle>
+            <StyledTitle>{intl.formatMessage({ id: 'contact.title' })}</StyledTitle>
             <InfoWrapper>
-                <p>15 Rue de la Paix, 75000 Paris</p>
-                <p>+33 (0)1 23 45 67 89</p>
+                {locale.contact.text.map((x, index) => (
+                    <p>{intl.formatMessage({ id: `contact.text.${index}` })}</p>
+                ))}
                 <StyledEmail href={`mailto:${EMAIL}`}>{EMAIL}</StyledEmail>
+                <StyledPhone href={`tel:+${PHONE_NUMBER}`}>{PHONE_NUMBER}</StyledPhone>
             </InfoWrapper>
-            <StyledForm onSubmit={handleSubmit}>
-                <StyledInput
-                    type="text"
-                    placeholder={intl.formatMessage({ id: 'name' })}
-                    value={name.toString()}
-                    onChange={e => setName(e.target.value)}
-                />
-                <StyledInput
-                    type="text"
-                    placeholder={intl.formatMessage({ id: 'mail' })}
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <StyledTextarea
-                    placeholder={intl.formatMessage({ id: 'message' })}
-                    cols="40"
-                    rows="5"
-                    value={text}
-                    onChange={e => setText(e.target.value)}
-                />
-                <ReCAPTCHA
-                    sitekey="6Lf0_pwUAAAAAEyNx2mMJAVU-H8ymMG3PqVV6wSg"
-                    onChange={onChange}
-                />
-                <StyledButton type="submit">
-                    {intl.formatMessage({ id: 'send' })}
-                </StyledButton>
-            </StyledForm>
         </StyledContact>
     );
 };
