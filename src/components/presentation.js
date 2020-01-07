@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
+import locale from '../intl/fr.json';
 
 const StyledPresentation = styled.section`
     display: flex;
@@ -25,18 +26,10 @@ const StyledTitle = styled.h1`
 
 const Presentation = ({ intl }) => (
     <StyledPresentation>
-        <StyledTitle>{intl.formatMessage({ id: 'presentation' })}</StyledTitle>
-        <p>
-            Sea oporteat hendrerit scripserit ea. His id diam dolor ridens. Ullum veniam
-            ei ius. Iuvaret gubergren consequuntur at nec. Eu qui dicam meliore
-            conclusionemque, has vidisse feugiat offendit id, duo prima pericula cu.
-        </p>
-        <p>
-            Mea nostrud vivendum vulputate in. Vix aperiam similique ad. Cu mel omnis
-            tritani, in nam blandit indoctum, utinam viderer atomorum ex duo. An qui probo
-            posidonium, his et ferri molestie. Has an gubergren torquatos, ex sea velit
-            diceret persequeris.
-        </p>
+        <StyledTitle>{intl.formatMessage({ id: 'presentation.title' })}</StyledTitle>
+        {locale.presentation.text.map((x, index) => (
+            <p>{intl.formatMessage({ id: `presentation.text.${index}` })}</p>
+        ))}
     </StyledPresentation>
 );
 

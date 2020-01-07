@@ -67,7 +67,9 @@ const Footer = ({ intl }) => (
                 <h3>{intl.formatMessage({ id: 'sitemap' })}</h3>
                 <ul>
                     <li>
-                        <Link to="/">{intl.formatMessage({ id: 'presentation' })}</Link>
+                        <Link to="/">
+                            {intl.formatMessage({ id: 'presentation.title' })}
+                        </Link>
                     </li>
                     <li>
                         <Link to="/products">

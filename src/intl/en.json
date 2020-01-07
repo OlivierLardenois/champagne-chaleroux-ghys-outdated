@@ -1,5 +1,4 @@
 {
-    "presentation": "Presentation",
     "access": "Access",
     "contact": "Contact",
     "name": "Name",
@@ -10,5 +9,13 @@
     "gallery": "Gallery",
     "home": "Home",
     "products": "Products",
-    "followUs": "Follow us"
+    "followUs": "Follow us",
+    "presentation": {
+        "title": "Presentation",
+        "text": [
+            "Our vineyard is 4 hectares big. It is situated all around the \"Grand Cru\" villages of Avize and Oger. In this area, the only grape variety growing is Chardonnay. In our vineyards, which are approximatelly 50 years old, we maintain a sustainable agriculture by the association of both tradition and respect of the environment.",
+            "In our cellar, we make the wine through an artisanal production (no filtration and very few automation of the equipment). Furthermore, we do a particularly long \"élevage sur latte\" which means that after the second fermentation, the bottles lay down in the cellar for no less than 10 years. During this process, the dead yeasts that remain in the bottle are going to decay and give to wine a unique taste. This means new aroma, better champagne foam and a full bodied wine.",
+            "Thus, we introduce to you a very unique vintage wine \"blanc de blanc\" recognizable by its toasted aroma and brioche flavours."
+        ]
+    }
 }
