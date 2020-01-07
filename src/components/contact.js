@@ -4,6 +4,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import styled from 'styled-components';
 import locale from '../intl/fr.json';
 
+const ADDRESS = '10 Rue des Gris, 51190 Avize';
 const EMAIL = 'email@gmail.com';
 const PHONE_NUMBER = '01 23 45 67 89';
 
@@ -43,6 +44,12 @@ const StyledEmail = styled.a`
 `;
 
 const StyledPhone = styled.a`
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+`;
+
+const StyledAddress = styled.a`
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
@@ -168,6 +175,13 @@ const Contact = ({ intl }) => {
                 ))}
                 <StyledEmail href={`mailto:${EMAIL}`}>{EMAIL}</StyledEmail>
                 <StyledPhone href={`tel:+${PHONE_NUMBER}`}>{PHONE_NUMBER}</StyledPhone>
+                <StyledAddress
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://goo.gl/maps/kuQhNUTh4LGPJDn48"
+                >
+                    {ADDRESS}
+                </StyledAddress>
             </InfoWrapper>
         </StyledContact>
     );
