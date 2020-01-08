@@ -1,18 +1,25 @@
 import { injectIntl } from 'gatsby-plugin-intl';
 import React, { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { FaMapMarkedAlt, FaPhone } from 'react-icons/fa';
+import { IoIosMail } from 'react-icons/io';
 import styled from 'styled-components';
 import locale from '../intl/fr.json';
 
 const ADDRESS = '10 Rue des Gris, 51190 Avize';
 const EMAIL = 'email@gmail.com';
 const PHONE_NUMBER = '01 23 45 67 89';
+const ICON_SIZE = 20;
 
 const StyledContact = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px 0;
+
+    & > * {
+        max-width: 70%;
+    }
 `;
 
 const StyledTitle = styled.h1`
@@ -23,36 +30,46 @@ const StyledTitle = styled.h1`
     text-decoration: underline;
 `;
 
-const InfoWrapper = styled.div`
+const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0;
 
-    * {
-        margin: 10px 0;
-        max-width: 70%;
+    & > * {
         text-align: center;
     }
 `;
 
-const StyledEmail = styled.a`
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: 30px;
+const InfoWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 2em 0;
+
+    @media (max-width: 999px) {
+        flex-direction: column;
+
+        & > * {
+            margin: 1em 0;
+        }
+    }
 `;
 
-const StyledPhone = styled.a`
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-`;
+const StyledInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 0px;
 
-const StyledAddress = styled.a`
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
+    & > * {
+        margin: 0.5em 0;
+    }
+
+    a {
+        cursor: pointer;
+        text-decoration: none;
+    }
 `;
 
 const StyledForm = styled.form`
@@ -169,19 +186,30 @@ const Contact = ({ intl }) => {
     return (
         <StyledContact>
             <StyledTitle>{intl.formatMessage({ id: 'contact.title' })}</StyledTitle>
-            <InfoWrapper>
+            <TextWrapper>
                 {locale.contact.text.map((x, index) => (
                     <p>{intl.formatMessage({ id: `contact.text.${index}` })}</p>
                 ))}
-                <StyledEmail href={`mailto:${EMAIL}`}>{EMAIL}</StyledEmail>
-                <StyledPhone href={`tel:+${PHONE_NUMBER}`}>{PHONE_NUMBER}</StyledPhone>
-                <StyledAddress
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://goo.gl/maps/kuQhNUTh4LGPJDn48"
-                >
-                    {ADDRESS}
-                </StyledAddress>
+            </TextWrapper>
+            <InfoWrapper>
+                <StyledInfo>
+                    <FaMapMarkedAlt size={ICON_SIZE} />
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://goo.gl/maps/kuQhNUTh4LGPJDn48"
+                    >
+                        {ADDRESS}
+                    </a>
+                </StyledInfo>
+                <StyledInfo>
+                    <IoIosMail size={ICON_SIZE} />
+                    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                </StyledInfo>
+                <StyledInfo>
+                    <FaPhone size={ICON_SIZE} />
+                    <a href={`tel:+${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
+                </StyledInfo>
             </InfoWrapper>
         </StyledContact>
     );
