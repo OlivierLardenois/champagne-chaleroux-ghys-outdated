@@ -1,7 +1,8 @@
 import { injectIntl } from 'gatsby-plugin-intl';
 import React, { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { FaMapMarkedAlt, FaPhone } from 'react-icons/fa';
+import { FaMapMarkedAlt } from 'react-icons/fa';
+import { MdPhone } from 'react-icons/md';
 import { IoIosMail } from 'react-icons/io';
 import styled from 'styled-components';
 import locale from '../intl/fr.json';
@@ -9,7 +10,7 @@ import locale from '../intl/fr.json';
 const ADDRESS = '10 Rue des Gris, 51190 Avize';
 const EMAIL = 'email@gmail.com';
 const PHONE_NUMBER = '01 23 45 67 89';
-const ICON_SIZE = 20;
+const ICON_SIZE = 42;
 
 const StyledContact = styled.section`
     display: flex;
@@ -68,6 +69,7 @@ const StyledInfo = styled.div`
 
     a {
         cursor: pointer;
+        color: black;
         text-decoration: none;
     }
 `;
@@ -193,7 +195,13 @@ const Contact = ({ intl }) => {
             </TextWrapper>
             <InfoWrapper>
                 <StyledInfo>
-                    <FaMapMarkedAlt size={ICON_SIZE} />
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://goo.gl/maps/kuQhNUTh4LGPJDn48"
+                    >
+                        <FaMapMarkedAlt size={ICON_SIZE} />
+                    </a>
                     <a
                         target="_blank"
                         rel="noopener noreferrer"
@@ -203,11 +211,15 @@ const Contact = ({ intl }) => {
                     </a>
                 </StyledInfo>
                 <StyledInfo>
-                    <IoIosMail size={ICON_SIZE} />
+                    <a href={`mailto:${EMAIL}`}>
+                        <IoIosMail size={ICON_SIZE} />
+                    </a>
                     <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
                 </StyledInfo>
                 <StyledInfo>
-                    <FaPhone size={ICON_SIZE} />
+                    <a href={`tel:+${PHONE_NUMBER}`}>
+                        <MdPhone size={ICON_SIZE} />
+                    </a>
                     <a href={`tel:+${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
                 </StyledInfo>
             </InfoWrapper>
