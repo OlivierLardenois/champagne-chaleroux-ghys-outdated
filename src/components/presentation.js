@@ -1,6 +1,7 @@
 import { injectIntl } from 'gatsby-plugin-intl';
 import React from 'react';
 import styled from 'styled-components';
+import { greyWhite } from '../colors';
 import locale from '../intl/fr.json';
 
 const StyledPresentation = styled.section`
@@ -8,7 +9,7 @@ const StyledPresentation = styled.section`
     flex-direction: column;
     align-items: center;
     padding: 50px 0;
-    background-color: #f9f9f9;
+    background-color: ${greyWhite};
 
     p {
         max-width: 70%;

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Link } from 'gatsby-plugin-intl';
+import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-
+import styled from 'styled-components';
+import { blackground } from '../colors';
 import { MobileLanguage } from './language';
 
 const StyledHamburger = styled.div`
@@ -60,16 +60,15 @@ const Menu = styled.ul`
     margin: 0;
     height: 100vh;
     width: 70%;
-    border-top: solid black;
-    background: white;
     padding: 0;
+    box-shadow: inset 0 2px 5px -2px #c1c1c1;
+    background-color: ${blackground};
 
     visibility: ${props => (props.showMenu ? 'visible' : 'hidden')};
     transform: ${props => (props.showMenu ? 'translate(-100%, 0)' : 'none')};
     transition: visibility 0.5s, transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
     & > a {
-        color: black;
         font-size: 0.8em;
         text-decoration: none;
     }

@@ -1,6 +1,7 @@
+import { changeLocale, IntlContextConsumer } from 'gatsby-plugin-intl';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl';
+import { blackground, blackHover } from '../colors';
 
 const Dropdown = styled.div`
     position: relative;
@@ -13,14 +14,14 @@ const Dropdown = styled.div`
         display: none;
         position: absolute;
         box-shadow: 0px 3px 8px 1px #e5e5e5;
-        background-color: white;
+        background-color: ${blackground};
 
         & > li {
             text-decoration: none;
             display: block;
 
             &:hover {
-                background-color: #f4f4f4;
+                background-color: ${blackHover};
             }
 
             & > div {

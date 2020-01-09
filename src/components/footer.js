@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image/withIEPolyfill';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
+import React from 'react';
+import styled from 'styled-components';
+import { blackground } from '../colors';
 
 const EXTERNAL_FRANCE_LINK = [
     { name: 'Domaine Nicolas', link: 'http://www.domaine-nicolas.fr' },
@@ -24,13 +25,17 @@ const StyledFooter = styled.footer`
     display: flex;
     justify-content: center;
 
+    * {
+        color: white;
+    }
+
     @media (min-width: 999px) {
         padding: 10px 0 40px 0;
     }
 `;
 
 const FooterCard = styled.div`
-    background: white;
+    background-color: ${blackground};
     box-sizing: border-box;
     box-shadow: 0px 3px 8px 1px #e5e5e5;
     display: flex;
@@ -49,6 +54,7 @@ const FooterCard = styled.div`
 
     @media (min-width: 999px) {
         max-width: 800px;
+        border-radius: 15px;
     }
 
     @media (max-width: 499px) {
@@ -72,7 +78,6 @@ const FooterLink = styled.div`
         margin: 5px 0;
 
         a {
-            color: black;
             cursor: pointer;
             font-size: 0.8em;
             text-decoration: none;

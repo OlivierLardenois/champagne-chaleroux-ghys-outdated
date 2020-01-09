@@ -1,7 +1,7 @@
+import { injectIntl, Link } from 'gatsby-plugin-intl';
 import React from 'react';
 import styled from 'styled-components';
-import { injectIntl, Link } from 'gatsby-plugin-intl';
-
+import { blackground, blackHover } from '../colors';
 import Hamburger from './hamburger';
 import { Language } from './language';
 
@@ -14,8 +14,12 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     box-shadow: 0 2px 6px 0px #c1c1c1;
-    background-color: white;
+    background-color: ${blackground};
     z-index: 1;
+
+    * {
+        color: white;
+    }
 `;
 
 const HeaderItems = styled.div`
@@ -25,7 +29,7 @@ const HeaderItems = styled.div`
         height: 100%;
 
         &:hover {
-            background-color: #e5e5e5;
+            background-color: ${blackHover};
         }
     }
 
@@ -45,7 +49,7 @@ const HeaderItem = styled(Link)`
     display: flex;
     align-items: center;
     padding: 0 20px;
-    color: black;
+    color: white;
     text-decoration: none;
 `;
 
