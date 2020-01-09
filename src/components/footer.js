@@ -34,6 +34,15 @@ const FooterCard = styled.div`
     @media (min-width: 999px) {
         max-width: 800px;
     }
+
+    @media (max-width: 499px) {
+        flex-direction: column;
+        align-items: center;
+
+        & > * {
+            margin-bottom: 20px;
+        }
+    }
 `;
 
 const FooterLink = styled.div`
@@ -56,13 +65,18 @@ const FooterLink = styled.div`
             }
         }
     }
+
+    @media (max-width: 499px) {
+        text-align: center;
+    }
 `;
 
 const FooterActionsWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 250px;
+    @media (max-width: 499px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 const Footer = ({ intl }) => (
