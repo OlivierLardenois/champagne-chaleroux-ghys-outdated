@@ -4,6 +4,22 @@ import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image/withIEPolyfill';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
 
+const EXTERNAL_FRANCE_LINK = [
+    { name: 'Domaine Nicolas', link: 'http://www.domaine-nicolas.fr' },
+    { name: 'Domaine Bouhelier', link: 'http://www.bouhelier.com' },
+    { name: 'Domaine Pons Gralet', link: 'http://www.ponsgralet.com' },
+    { name: 'Domaine Mittnacht Frères', link: 'http://www.mittnachtfreres.fr' },
+    {
+        name: 'Domaine de Moulines-Figueirasse',
+        link: 'http://www.domaines-moulines-figueirasse.fr',
+    },
+];
+
+const EXTERNAL_EUROPA_LINK = [
+    { name: 'Skouras', link: 'http://www.skouras.gr' },
+    { name: ' Castel Ruggero', link: 'http://www.castelruggero.com' },
+];
+
 const StyledFooter = styled.footer`
     display: flex;
     justify-content: center;
@@ -104,72 +120,23 @@ const Footer = ({ intl }) => (
                 <h3>{intl.formatMessage({ id: 'estates' })}</h3>
                 <h4>{intl.formatMessage({ id: 'france' })}</h4>
                 <ul>
-                    <li>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="http://www.domaine-nicolas.fr"
-                        >
-                            Domaine Nicolas
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="http://www.bouhelier.com"
-                        >
-                            Domaine Bouhelier
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="http://www.ponsgralet.com"
-                        >
-                            Domaine Pons Gralet
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="http://www.mittnachtfreres.fr"
-                        >
-                            Domaine Mittnacht Frères
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="http://www.domaines-moulines-figueirasse.fr"
-                        >
-                            Domaine de Moulines-Figueirasse
-                        </a>
-                    </li>
+                    {EXTERNAL_FRANCE_LINK.map(link => (
+                        <li>
+                            <a target="_blank" rel="noopener noreferrer" href={link.link}>
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
                 <h4>{intl.formatMessage({ id: 'europa' })}</h4>
                 <ul>
-                    <li>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="http://www.skouras.gr"
-                        >
-                            Skouras
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="http://www.castelruggero.com"
-                        >
-                            Castel Ruggero
-                        </a>
-                    </li>
+                    {EXTERNAL_EUROPA_LINK.map(link => (
+                        <li>
+                            <a target="_blank" rel="noopener noreferrer" href={link.link}>
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
             </FooterLink>
             <FooterActionsWrapper>
