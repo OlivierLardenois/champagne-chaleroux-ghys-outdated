@@ -22,6 +22,15 @@ const FooterCard = styled.div`
     padding: 30px 70px;
     width: 100%;
 
+    h3 {
+        font-size: 1.1em;
+    }
+
+    h4 {
+        font-size: 0.9em;
+        margin: 1em 0 0.5em 0;
+    }
+
     @media (min-width: 999px) {
         max-width: 800px;
     }
@@ -30,11 +39,7 @@ const FooterCard = styled.div`
 const FooterLink = styled.div`
     ul {
         padding: 0;
-    }
-
-    h3 {
-        font-size: 1.1em;
-        margin-bottom: 20px;
+        margin: 0;
     }
 
     li {
@@ -78,6 +83,78 @@ const Footer = ({ intl }) => (
                     </li>
                     <li>
                         <Link to="/gallery">{intl.formatMessage({ id: 'gallery' })}</Link>
+                    </li>
+                </ul>
+            </FooterLink>
+            <FooterLink>
+                <h3>{intl.formatMessage({ id: 'estates' })}</h3>
+                <h4>{intl.formatMessage({ id: 'france' })}</h4>
+                <ul>
+                    <li>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="http://www.domaine-nicolas.fr"
+                        >
+                            Domaine Nicolas
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="http://www.bouhelier.com"
+                        >
+                            Domaine Bouhelier
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="http://www.ponsgralet.com"
+                        >
+                            Domaine Pons Gralet
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="http://www.mittnachtfreres.fr"
+                        >
+                            Domaine Mittnacht Frères
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="http://www.domaines-moulines-figueirasse.fr"
+                        >
+                            Domaine de Moulines-Figueirasse
+                        </a>
+                    </li>
+                </ul>
+                <h4>{intl.formatMessage({ id: 'europa' })}</h4>
+                <ul>
+                    <li>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="http://www.skouras.gr"
+                        >
+                            Skouras
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="http://www.castelruggero.com"
+                        >
+                            Castel Ruggero
+                        </a>
                     </li>
                 </ul>
             </FooterLink>
