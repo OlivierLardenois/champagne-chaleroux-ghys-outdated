@@ -21,7 +21,7 @@ const MenuToogle = styled.div`
         width: 33px;
         height: 4px;
         margin-bottom: 5px;
-        background: #cdcdcd;
+        background: white;
         border-radius: 3px;
 
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
@@ -36,10 +36,7 @@ const MenuToogle = styled.div`
     }
     span {
         ${props =>
-            props.showMenu
-                ? `transform: rotate(45deg) translate(-2px, -1px);
-                background: #232323;`
-                : null};
+            props.showMenu ? `transform: rotate(45deg) translate(-2px, -1px);` : null};
     }
     span:nth-last-child(2) {
         ${props =>
