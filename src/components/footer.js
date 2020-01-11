@@ -82,7 +82,7 @@ const FooterLink = styled.div`
             font-size: 0.8em;
             text-decoration: none;
             &:hover {
-                color: blue;
+                color: grey;
             }
         }
     }
