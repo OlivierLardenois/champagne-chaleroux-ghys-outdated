@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { injectIntl } from 'gatsby-plugin-intl';
 
 import Layout from '../components/layout';
 import Product from '../components/product';
@@ -17,26 +18,23 @@ const Products = styled.section`
     }
 `;
 
-const ProductsPage = () => (
+const ProductsPage = ({ intl }) => (
     <Layout>
         <Products>
-            <Product imgName="image6.jpg" reverse>
-                Sea oporteat hendrerit scripserit ea. His id diam dolor ridens. Ullum
-                veniam ei ius. Iuvaret gubergren consequuntur at nec. Eu qui dicam meliore
-                conclusionemque, has vidisse feugiat offendit id, duo prima pericula cu.
+            <Product imgName="brut.jpg" reverse>
+                {intl.formatMessage({ id: 'products.brut.title' })}
+                {intl.formatMessage({ id: 'products.brut.text' })}
             </Product>
-            <Product imgName="image5.jpg">
-                Sea oporteat hendrerit scripserit ea. His id diam dolor ridens. Ullum
-                veniam ei ius. Iuvaret gubergren consequuntur at nec. Eu qui dicam meliore
-                conclusionemque, has vidisse feugiat offendit id, duo prima pericula cu.
+            <Product imgName="millesime.jpg">
+                {intl.formatMessage({ id: 'products.millesime.title' })}
+                {intl.formatMessage({ id: 'products.millesime.text' })}
             </Product>
-            <Product imgName="image4.jpg" reverse>
-                Sea oporteat hendrerit scripserit ea. His id diam dolor ridens. Ullum
-                veniam ei ius. Iuvaret gubergren consequuntur at nec. Eu qui dicam meliore
-                conclusionemque, has vidisse feugiat offendit id, duo prima pericula cu.
+            <Product imgName="rose.jpg" reverse>
+                {intl.formatMessage({ id: 'products.rose.title' })}
+                {intl.formatMessage({ id: 'products.rose.text' })}
             </Product>
         </Products>
     </Layout>
 );
 
-export default ProductsPage;
+export default injectIntl(ProductsPage);

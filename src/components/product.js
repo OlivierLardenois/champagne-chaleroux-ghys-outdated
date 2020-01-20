@@ -13,7 +13,7 @@ const StyledProduct = styled.div`
 
     @media (max-width: 999px) {
         flex-direction: column;
-        max-width: 400px;
+        max-width: 300px;
         width: 80%;
     }
 `;
@@ -24,19 +24,29 @@ const Description = styled.div`
     box-shadow: inset 0px 0px 5px 0px #656565;
     align-items: center;
     background-color: ${blackground};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        margin: 0;
+    }
 
     @media (max-width: 999px) {
         padding: 40px;
         text-align: center;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
     }
+`;
 
-    @media (min-width: 1000px) {
-        ${props => (props.reverse ? `border-top-left-radius: 10px;` : null)};
-        ${props => (props.reverse ? `border-bottom-left-radius: 10px;` : null)};
-        ${props => (!props.reverse ? `border-top-right-radius: 10px;` : null)};
-        ${props => (!props.reverse ? `border-bottom-right-radius: 10px;` : null)};
+const ImageWrapper = styled.div`
+    display: block;
+
+    @media (max-width: 999px) {
+        max-width: 300px;
+    }
+    @media (min-width: 999px) {
+        min-width: 250px;
+        min-width: 250px;
     }
 `;
 
@@ -47,7 +57,7 @@ const Product = ({ children, imgName, reverse }) => (
                 allImageSharp {
                     edges {
                         node {
-                            fluid(maxWidth: 500) {
+                            fluid(maxWidth: 300) {
                                 ...GatsbyImageSharpFluid
                                 originalName
                             }
@@ -63,14 +73,18 @@ const Product = ({ children, imgName, reverse }) => (
             if (!image) return null;
             return (
                 <StyledProduct reverse={reverse}>
-                    <Img
-                        style={{ minWidth: '200px', height: '300px' }}
-                        fluid={image.node.fluid}
-                        objectFit="cover"
-                        objectPosition="50% 50%"
-                        alt=""
-                    />
-                    <Description reverse={reverse}>{children}</Description>
+                    <ImageWrapper>
+                        <Img
+                            fluid={image.node.fluid}
+                            objectFit="cover"
+                            objectPosition="50% 50%"
+                            alt=""
+                        />
+                    </ImageWrapper>
+                    <Description reverse={reverse}>
+                        <h2>{children[0]}</h2>
+                        <p>{children[1]}</p>
+                    </Description>
                 </StyledProduct>
             );
         }}

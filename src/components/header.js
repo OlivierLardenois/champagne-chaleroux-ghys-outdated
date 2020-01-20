@@ -1,3 +1,5 @@
+import { graphql, StaticQuery } from 'gatsby';
+import Img from 'gatsby-image/withIEPolyfill';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
 import React from 'react';
 import styled from 'styled-components';
@@ -59,16 +61,41 @@ const SmallScreenHamburger = styled(Hamburger)`
     }
 `;
 
+const Logo = () => (
+    <StaticQuery
+        query={graphql`
+            query {
+                file(relativePath: { eq: "logo.png" }) {
+                    childImageSharp {
+                        fluid {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
+            }
+        `}
+        render={data => (
+            <Img
+                style={{ width: '40px' }}
+                fluid={data.file.childImageSharp.fluid}
+                alt="logo"
+            />
+        )}
+    />
+);
+
 const Header = ({ intl }) => {
     const pages = [
         { label: intl.formatMessage({ id: 'home' }), link: '/' },
-        { label: intl.formatMessage({ id: 'products' }), link: '/products' },
+        { label: intl.formatMessage({ id: 'products.title' }), link: '/products' },
         { label: intl.formatMessage({ id: 'gallery' }), link: '/gallery' },
     ];
 
     return (
         <StyledHeader>
-            <LogoWapper>Logo</LogoWapper>
+            <LogoWapper>
+                <Logo />
+            </LogoWapper>
             <SmallScreenHamburger pages={pages} />
             <HeaderItems>
                 {pages.map(({ label, link }) => (

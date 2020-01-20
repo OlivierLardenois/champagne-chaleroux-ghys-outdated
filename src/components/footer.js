@@ -52,22 +52,6 @@ const FooterCard = styled.div`
         margin: 1em 0 0.5em 0;
     }
 
-    @media (min-width: 999px) {
-        max-width: 800px;
-        border-radius: 15px;
-    }
-
-    @media (max-width: 499px) {
-        flex-direction: column;
-        align-items: center;
-
-        & > * {
-            margin-bottom: 20px;
-        }
-    }
-`;
-
-const FooterLink = styled.div`
     ul {
         padding: 0;
         margin: 0;
@@ -87,8 +71,32 @@ const FooterLink = styled.div`
         }
     }
 
+    @media (min-width: 999px) {
+        max-width: 800px;
+        border-radius: 15px;
+    }
+
     @media (max-width: 499px) {
         text-align: center;
+        flex-direction: column;
+        align-items: center;
+
+        li > a {
+            display: block;
+            padding: 10px;
+        }
+
+        & > * {
+            margin-bottom: 20px;
+        }
+    }
+`;
+
+const FooterLink = styled.div``;
+
+const StyledStiteMap = styled.div`
+    @media (max-width: 499px) {
+        display: none;
     }
 `;
 
@@ -103,7 +111,7 @@ const FooterActionsWrapper = styled.div`
 const Footer = ({ intl }) => (
     <StyledFooter>
         <FooterCard>
-            <FooterLink>
+            <StyledStiteMap>
                 <h3>{intl.formatMessage({ id: 'sitemap' })}</h3>
                 <ul>
                     <li>
@@ -113,14 +121,14 @@ const Footer = ({ intl }) => (
                     </li>
                     <li>
                         <Link to="/products">
-                            {intl.formatMessage({ id: 'products' })}
+                            {intl.formatMessage({ id: 'products.title' })}
                         </Link>
                     </li>
                     <li>
                         <Link to="/gallery">{intl.formatMessage({ id: 'gallery' })}</Link>
                     </li>
                 </ul>
-            </FooterLink>
+            </StyledStiteMap>
             <FooterLink>
                 <h3>{intl.formatMessage({ id: 'estates' })}</h3>
                 <h4>{intl.formatMessage({ id: 'france' })}</h4>

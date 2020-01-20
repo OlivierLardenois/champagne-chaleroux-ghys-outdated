@@ -10,7 +10,21 @@
     "europa": "In Europa",
     "gallery": "Gallery",
     "home": "Home",
-    "products": "Products",
+    "products": {
+        "title": "Our champagnes",
+        "brut": {
+            "title": "Brut",
+            "text": "100 % chardonnay et  issu de la vendange 2006, notre brut présente une robe couleur or. Au nez on perçoit des arômes de pains grillés et de champignons frais. En bouche, des notes d’oxydation sont ressenti, on retrouve la torréfaction et le pain d’épice. Le dosage est de 6 g/L."
+        },
+        "millesime": {
+            "title": "Millésime 2008",
+            "text": "Notre cuvée d’exception 100 % chardonnay. 2008 est reconnu comme un excellent millésime en Champagne. Malgré son âge, ce vin vous surprendra par sa fraîcheur. Au nez, ce sont les arômes de citron et de poire qui dominent. En bouche, ces arômes sont exacerbés par la tension du vin et le faible dosage (5g/L)."
+        },
+        "rose": {
+            "title": "Rosé ",
+            "text": "Cette cuvée est un assemblage de 40 % de pinot noir, 40 % de pinot meunier et 20 % de chardonnay.  Le vieillissement en cave est de 2 à 3 ans. Au nez, on distingue des notes de framboises et de fraises. En bouche, ces arômes sont accompagnés par une belle tension. Le dosage est de 6 g/L."
+        }
+    },
     "followUs": "Follow us",
     "contact": {
         "title": "Contact",
