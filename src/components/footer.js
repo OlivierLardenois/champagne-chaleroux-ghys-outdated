@@ -39,12 +39,13 @@ const FooterCard = styled.div`
     box-sizing: border-box;
     box-shadow: 0px 3px 8px 1px #e5e5e5;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 30px 70px;
     width: 100%;
 
     h3 {
         font-size: 1.1em;
+        margin-top: 0;
     }
 
     h4 {
@@ -85,26 +86,24 @@ const FooterCard = styled.div`
             display: block;
             padding: 10px;
         }
+    }
+`;
 
-        & > * {
-            margin-bottom: 20px;
+const StyledExternalLinks = styled.div`
+    @media (min-width: 499px) {
+        & > div {
+            display: inline-block;
+            vertical-align: top;
+        }
+        div:not(:last-child) {
+            margin-right: 30px;
         }
     }
 `;
 
-const FooterLink = styled.div``;
-
 const StyledStiteMap = styled.div`
     @media (max-width: 499px) {
         display: none;
-    }
-`;
-
-const FooterActionsWrapper = styled.div`
-    @media (max-width: 499px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 `;
 
@@ -129,64 +128,43 @@ const Footer = ({ intl }) => (
                     </li>
                 </ul>
             </StyledStiteMap>
-            <FooterLink>
+            <StyledExternalLinks>
                 <h3>{intl.formatMessage({ id: 'estates' })}</h3>
-                <h4>{intl.formatMessage({ id: 'france' })}</h4>
-                <ul>
-                    {EXTERNAL_FRANCE_LINK.map(link => (
-                        <li>
-                            <a target="_blank" rel="noopener noreferrer" href={link.link}>
-                                {link.name}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-                <h4>{intl.formatMessage({ id: 'europa' })}</h4>
-                <ul>
-                    {EXTERNAL_EUROPA_LINK.map(link => (
-                        <li>
-                            <a target="_blank" rel="noopener noreferrer" href={link.link}>
-                                {link.name}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </FooterLink>
-            <FooterActionsWrapper>
-                <h3>{intl.formatMessage({ id: 'followUs' })}</h3>
                 <div>
-                    <a href="https://www.facebook.com/lardenoisetfils/">
-                        <Image />
-                    </a>
+                    <h4>{intl.formatMessage({ id: 'france' })}</h4>
+                    <ul>
+                        {EXTERNAL_FRANCE_LINK.map(link => (
+                            <li>
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={link.link}
+                                >
+                                    {link.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-            </FooterActionsWrapper>
+                <div>
+                    <h4>{intl.formatMessage({ id: 'europa' })}</h4>
+                    <ul>
+                        {EXTERNAL_EUROPA_LINK.map(link => (
+                            <li>
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={link.link}
+                                >
+                                    {link.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </StyledExternalLinks>
         </FooterCard>
     </StyledFooter>
-);
-
-const Image = () => (
-    <StaticQuery
-        query={graphql`
-            query {
-                file(relativePath: { eq: "fb.png" }) {
-                    childImageSharp {
-                        fluid {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
-                }
-            }
-        `}
-        render={data => (
-            <Img
-                style={{ width: '50px', height: '50px' }}
-                fluid={data.file.childImageSharp.fluid}
-                objectFit="cover"
-                objectPosition="50% 50%"
-                alt=""
-            />
-        )}
-    />
 );
 
 export default injectIntl(Footer);
