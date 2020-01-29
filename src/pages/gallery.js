@@ -11,6 +11,10 @@ const ImagesGrid = styled.section`
     margin: 0 auto;
     padding: 40px 0;
 
+    @media (min-width: 999px) {
+        max-height: 2700px;
+    }
+
     @media (max-width: 999px) {
         flex-direction: column;
         align-items: center;
@@ -21,7 +25,6 @@ const ImagesColumn = styled.section`
     display: flex;
     flex-direction: column;
     width: 80%;
-    max-height: 1200px;
 
     @media (min-width: 999px) {
         width: 100%;
@@ -31,7 +34,7 @@ const ImagesColumn = styled.section`
 
 const ImageWrapper = ({ fluid }) => (
     <Img
-        style={{ width: '100%', margin: '2px 0' }}
+        style={{ margin: '2px 0' }}
         fluid={fluid}
         objectFit="cover"
         objectPosition="50% 50%"
@@ -44,14 +47,18 @@ const GalleryPage = ({ data }) => (
         <ImagesGrid>
             <ImagesColumn>
                 <ImageWrapper fluid={data.img1.childImageSharp.fluid} />
-                <ImageWrapper fluid={data.img4.childImageSharp.fluid} />
-                <ImageWrapper fluid={data.img7.childImageSharp.fluid} />
-            </ImagesColumn>
-            <ImagesColumn>
                 <ImageWrapper fluid={data.img2.childImageSharp.fluid} />
                 <ImageWrapper fluid={data.img3.childImageSharp.fluid} />
+                <ImageWrapper fluid={data.img4.childImageSharp.fluid} />
                 <ImageWrapper fluid={data.img5.childImageSharp.fluid} />
+                {/* <ImageWrapper fluid={data.img8.childImageSharp.fluid} /> Use it for background */}
+            </ImagesColumn>
+            <ImagesColumn>
                 <ImageWrapper fluid={data.img6.childImageSharp.fluid} />
+                <ImageWrapper fluid={data.img7.childImageSharp.fluid} />
+                <ImageWrapper fluid={data.img8.childImageSharp.fluid} />
+                <ImageWrapper fluid={data.img9.childImageSharp.fluid} />
+                <ImageWrapper fluid={data.img10.childImageSharp.fluid} />
             </ImagesColumn>
         </ImagesGrid>
     </Layout>
@@ -88,6 +95,15 @@ export const query = graphql`
             ...imageFragment
         }
         img7: file(relativePath: { eq: "image7.jpg" }) {
+            ...imageFragment
+        }
+        img8: file(relativePath: { eq: "image8.jpg" }) {
+            ...imageFragment
+        }
+        img9: file(relativePath: { eq: "image9.jpg" }) {
+            ...imageFragment
+        }
+        img10: file(relativePath: { eq: "image10.jpg" }) {
             ...imageFragment
         }
     }
