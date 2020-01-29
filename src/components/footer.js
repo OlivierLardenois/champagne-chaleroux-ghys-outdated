@@ -10,6 +10,10 @@ const EXTERNAL_FRANCE_LINK = [
     { name: 'Domaine Bouhelier', link: 'http://www.bouhelier.com' },
     { name: 'Domaine Pons Gralet', link: 'http://www.ponsgralet.com' },
     { name: 'Domaine Mittnacht Frères', link: 'http://www.mittnachtfreres.fr' },
+    { name: 'Domaine de Ferrussac', link: 'http://www.ferrussac.fr' },
+    { name: 'Bader-Mimeur', link: 'http://www.bader-mimeur.com/fr' },
+    { name: 'Fontesole', link: 'https://www.lesvigneronsdefontes.com/fr' },
+    { name: 'Cave de Saint Chinian', link: 'https://www.vin-saintchinian.com/fr' },
     {
         name: 'Domaine de Moulines-Figueirasse',
         link: 'http://www.domaines-moulines-figueirasse.fr',
