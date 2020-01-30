@@ -1,8 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image/withIEPolyfill';
-
+import React from 'react';
+import styled from 'styled-components';
 import Layout from '../components/layout';
 
 const ImagesGrid = styled.section`

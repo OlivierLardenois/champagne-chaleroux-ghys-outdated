@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import Header from './header';
 import Footer from './footer';
+import Header from './header';
 
 const Container = styled.main`
     margin-top: 60px;

@@ -1,6 +1,6 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image/withIEPolyfill';
+import React from 'react';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -28,7 +28,7 @@ const Image = () => (
         `}
         render={data => (
             <Img
-                style={{ height: '600px' }}
+                style={{ maxHeight: '500px' }}
                 fluid={data.file.childImageSharp.fluid}
                 objectFit="cover"
                 objectPosition="50% 50%"

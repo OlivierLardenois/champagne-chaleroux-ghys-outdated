@@ -2,8 +2,8 @@ import { injectIntl } from 'gatsby-plugin-intl';
 import React, { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { FaMapMarkedAlt } from 'react-icons/fa';
-import { MdPhone } from 'react-icons/md';
 import { IoIosMail } from 'react-icons/io';
+import { MdPhone } from 'react-icons/md';
 import styled from 'styled-components';
 import locale from '../intl/fr.json';
 

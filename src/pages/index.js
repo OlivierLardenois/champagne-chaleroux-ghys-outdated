@@ -1,8 +1,7 @@
 import React from 'react';
-
 import Contact from '../components/contact';
-import Layout from '../components/layout';
 import Image from '../components/image';
+import Layout from '../components/layout';
 import Presentation from '../components/presentation';
 import SEO from '../components/seo';
 

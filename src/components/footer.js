@@ -1,5 +1,3 @@
-import { graphql, StaticQuery } from 'gatsby';
-import Img from 'gatsby-image/withIEPolyfill';
 import { injectIntl, Link } from 'gatsby-plugin-intl';
 import React from 'react';
 import styled from 'styled-components';
