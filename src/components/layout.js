@@ -7,7 +7,6 @@ const Container = styled.main`
     margin-top: 60px;
 `;
 
-// @TODO: look react helmet
 const Layout = ({ children }) => (
     <>
         <link

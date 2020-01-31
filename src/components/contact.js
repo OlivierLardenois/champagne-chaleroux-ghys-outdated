@@ -8,8 +8,8 @@ import styled from 'styled-components';
 import locale from '../intl/fr.json';
 
 const ADDRESS = '10 Rue des Gris, 51190 Avize';
-const EMAIL = 'email@gmail.com';
-const PHONE_NUMBER = '01 23 45 67 89';
+const EMAIL = 'earl.ghys@wanadoo.fr';
+const PHONE_NUMBER = '06 48 71 50 64';
 const ICON_SIZE = 42;
 
 const StyledContact = styled.section`

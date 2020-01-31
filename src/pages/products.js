@@ -1,9 +1,9 @@
+import { injectIntl } from 'gatsby-plugin-intl';
 import React from 'react';
 import styled from 'styled-components';
-import { injectIntl } from 'gatsby-plugin-intl';
-
 import Layout from '../components/layout';
 import Product from '../components/product';
+import SEO from '../components/seo';
 
 const Products = styled.section`
     padding: 40px 0;
@@ -20,6 +20,12 @@ const Products = styled.section`
 
 const ProductsPage = ({ intl }) => (
     <Layout>
+        <SEO
+            title={intl.formatMessage({ id: `products.title` })}
+            keywords={[`champagne`, `vin`, `avize`]}
+            description={intl.formatMessage({ id: `meta.description` })}
+            lang={intl.locale}
+        />
         <Products>
             <Product imgName="brut.jpg" reverse>
                 {intl.formatMessage({ id: 'products.brut.title' })}

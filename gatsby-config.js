@@ -1,8 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: `Champagne Chaleroux-Ghys`,
-        description: `Champagne Chaleroux-Ghys website`,
-        author: `OlivierLardenois`,
+        title: `Champagne Chaléroux-Ghys`,
+        description: `Champagne Chaléroux-Ghys, vignoble grand cru blanc de blanc situé à avize`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
@@ -19,8 +18,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `Champagne Chaleroux-Ghys`,
-                short_name: `Champagne Chaleroux-Ghys`,
+                name: `Champagne Chaléroux-Ghys`,
+                short_name: `Champagne Chaléroux-Ghys`,
                 start_url: `/`,
                 background_color: `#8c572c`,
                 theme_color: `#8c572c`,

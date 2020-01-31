@@ -1,8 +1,10 @@
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image/withIEPolyfill';
+import { injectIntl } from 'gatsby-plugin-intl';
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 const ImagesGrid = styled.section`
     display: flex;
@@ -41,8 +43,14 @@ const ImageWrapper = ({ fluid }) => (
     />
 );
 
-const GalleryPage = ({ data }) => (
+const GalleryPage = ({ intl, data }) => (
     <Layout>
+        <SEO
+            title={intl.formatMessage({ id: `gallery` })}
+            keywords={[`champagne`, `vin`, `avize`]}
+            description={intl.formatMessage({ id: `meta.description` })}
+            lang={intl.locale}
+        />
         <ImagesGrid>
             <ImagesColumn>
                 <ImageWrapper fluid={data.img1.childImageSharp.fluid} />
@@ -108,4 +116,4 @@ export const query = graphql`
     }
 `;
 
-export default GalleryPage;
+export default injectIntl(GalleryPage);

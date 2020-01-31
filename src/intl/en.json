@@ -10,6 +10,9 @@
     "europa": "In Europa",
     "gallery": "Gallery",
     "home": "Home",
+    "meta": {
+        "description": "Champagne Chaléroux-Ghys, vineyard \"Grand Cru blanc de blanc\" located in Avize"
+    },
     "products": {
         "title": "Our champagnes",
         "brut": {

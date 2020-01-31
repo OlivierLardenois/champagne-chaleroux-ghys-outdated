@@ -10,6 +10,9 @@
     "europa": "En Europe",
     "gallery": "Galerie",
     "home": "Accueil",
+    "meta": {
+        "description": "Champagne Chaléroux-Ghys, vignoble « Grands Cru » blanc de blanc situé à Avize"
+    },
     "products": {
         "title": "Nos champagnes",
         "brut": {
