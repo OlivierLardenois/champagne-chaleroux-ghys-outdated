@@ -19,7 +19,7 @@ const Image = () => (
             query {
                 file(relativePath: { eq: "background.jpg" }) {
                     childImageSharp {
-                        fluid {
+                        fluid(quality: 100) {
                             ...GatsbyImageSharpFluid
                         }
                     }
