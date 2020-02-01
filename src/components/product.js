@@ -58,7 +58,7 @@ const Product = ({ children, imgName, reverse }) => (
                     edges {
                         node {
                             fluid(maxWidth: 300) {
-                                ...GatsbyImageSharpFluid
+                                ...GatsbyImageSharpFluid_withWebp
                                 originalName
                             }
                         }

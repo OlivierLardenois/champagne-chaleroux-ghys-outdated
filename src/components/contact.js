@@ -24,11 +24,9 @@ const StyledContact = styled.section`
 `;
 
 const StyledTitle = styled.h1`
-    font-family: cursive, sans-serif;
     font-size: 3em;
     margin: 20px 0;
     font-style: italic;
-    text-decoration: underline;
 `;
 
 const TextWrapper = styled.div`

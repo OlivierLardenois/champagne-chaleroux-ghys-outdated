@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
     height: 60px;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 2px 6px 0px #c1c1c1;
+    box-shadow: 0 0px 6px 0px #c1c1c1;
     background-color: ${blackground};
     z-index: 1;
 
@@ -68,7 +68,7 @@ const Logo = () => (
                 file(relativePath: { eq: "logo.png" }) {
                     childImageSharp {
                         fluid {
-                            ...GatsbyImageSharpFluid
+                            ...GatsbyImageSharpFluid_withWebp
                         }
                     }
                 }

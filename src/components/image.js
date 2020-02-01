@@ -20,7 +20,7 @@ const Image = () => (
                 file(relativePath: { eq: "background.jpg" }) {
                     childImageSharp {
                         fluid(quality: 100) {
-                            ...GatsbyImageSharpFluid
+                            ...GatsbyImageSharpFluid_withWebp
                         }
                     }
                 }

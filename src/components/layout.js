@@ -10,8 +10,9 @@ const Container = styled.main`
 const Layout = ({ children }) => (
     <>
         <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto"
+            href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
             rel="stylesheet"
+            async
         />
         <Header />
         <Container>{children}</Container>

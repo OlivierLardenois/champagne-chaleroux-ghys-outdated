@@ -75,7 +75,7 @@ export const imageFragment = graphql`
     fragment imageFragment on File {
         childImageSharp {
             fluid {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_withWebp
             }
         }
     }
