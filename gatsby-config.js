@@ -1,6 +1,6 @@
 module.exports = {
     siteMetadata: {
-        title: `Champagne Chaléroux-Ghys`,
+        title: `Champagne Chaléroux-Ghys à Avize`,
         description: `Champagne Chaléroux-Ghys, vignoble grand cru blanc de blanc situé à avize`,
     },
     plugins: [

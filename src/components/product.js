@@ -28,7 +28,7 @@ const Description = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    h2 {
+    h3 {
         margin: 0;
     }
 
@@ -78,11 +78,11 @@ const Product = ({ children, imgName, reverse }) => (
                             fluid={image.node.fluid}
                             objectFit="cover"
                             objectPosition="50% 50%"
-                            alt=""
+                            alt={`Champagne ${children[0]}`}
                         />
                     </ImageWrapper>
                     <Description reverse={reverse}>
-                        <h2>{children[0]}</h2>
+                        <h3>{children[0]}</h3>
                         <p>{children[1]}</p>
                     </Description>
                 </StyledProduct>

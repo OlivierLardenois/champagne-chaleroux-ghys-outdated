@@ -10,7 +10,6 @@ const IndexPage = ({ intl }) => (
     <Layout>
         <SEO
             title={intl.formatMessage({ id: `home` })}
-            keywords={[`champagne`, `vin`, 'wine', `avize`]}
             description={intl.formatMessage({ id: `meta.description` })}
             lang={intl.locale}
         />

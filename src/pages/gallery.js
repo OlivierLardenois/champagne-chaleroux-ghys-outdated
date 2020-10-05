@@ -47,7 +47,6 @@ const GalleryPage = ({ intl, data }) => (
     <Layout>
         <SEO
             title={intl.formatMessage({ id: `gallery` })}
-            keywords={[`champagne`, `vin`, `avize`]}
             description={intl.formatMessage({ id: `meta.description` })}
             lang={intl.locale}
         />

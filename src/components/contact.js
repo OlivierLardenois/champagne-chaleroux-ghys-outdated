@@ -1,6 +1,5 @@
 import { injectIntl } from 'gatsby-plugin-intl';
-import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import React from 'react';
 import { FaMapMarkedAlt } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
 import { MdPhone } from 'react-icons/md';
@@ -23,7 +22,7 @@ const StyledContact = styled.section`
     }
 `;
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.h2`
     font-size: 3em;
     margin: 20px 0;
     font-style: italic;
@@ -102,85 +101,6 @@ const StyledForm = styled.form`
         }
     }
 `;
-
-const StyledInput = styled.input`
-    height: 20px;
-    width: 200px;
-    margin: 10px 0;
-    border: none;
-    border-bottom: 1px solid;
-`;
-
-const StyledTextarea = styled.textarea`
-    height: 120px;
-    width: 400px;
-    margin: 25px 0;
-    resize: none;
-    border-radius: 30px;
-
-    @media (max-width: 500px) {
-        width: 90%;
-    }
-`;
-
-const StyledButton = styled.button`
-    border-radius: 8px;
-    padding: 8px;
-    height: 40px;
-    min-width: 120px;
-    font-size: 1em;
-    margin-top: 25px;
-`;
-
-const ContactForm = ({ intl }) => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [text, setText] = useState('');
-    const [captcha, setCaptcha] = useState(false);
-
-    function onChange(value) {
-        if (value) setCaptcha(true);
-    }
-
-    function handleSubmit(event) {
-        // @TODO: Look at Formik
-        // Send captcha value to backend in order to verify it, then send mail
-        event.preventDefault();
-        // eslint-disable-next-line no-alert
-        return captcha ? window.alert('Email sent') : window.alert('Verify captcha');
-    }
-
-    return (
-        <StyledForm onSubmit={handleSubmit}>
-            <StyledInput
-                type="text"
-                placeholder={intl.formatMessage({ id: 'name' })}
-                value={name.toString()}
-                onChange={e => setName(e.target.value)}
-            />
-            <StyledInput
-                type="text"
-                placeholder={intl.formatMessage({ id: 'mail' })}
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-            />
-            <StyledTextarea
-                placeholder={intl.formatMessage({ id: 'message' })}
-                cols="40"
-                rows="5"
-                value={text}
-                onChange={e => setText(e.target.value)}
-            />
-            <ReCAPTCHA
-                sitekey="6Lf0_pwUAAAAAEyNx2mMJAVU-H8ymMG3PqVV6wSg"
-                onChange={onChange}
-            />
-            <StyledButton type="submit">
-                {intl.formatMessage({ id: 'send' })}
-            </StyledButton>
-        </StyledForm>
-    );
-};
 
 const Contact = ({ intl }) => {
     return (

@@ -17,7 +17,7 @@ const StyledPresentation = styled.section`
     }
 `;
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.h2`
     font-size: 3em;
     margin: 20px 0;
     font-style: italic;

@@ -22,7 +22,6 @@ const ProductsPage = ({ intl }) => (
     <Layout>
         <SEO
             title={intl.formatMessage({ id: `products.title` })}
-            keywords={[`champagne`, `vin`, `avize`]}
             description={intl.formatMessage({ id: `meta.description` })}
             lang={intl.locale}
         />
